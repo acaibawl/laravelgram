@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'PostsController@index');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'PostsController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/users/edit', 'UsersController@edit');
 
@@ -23,3 +23,6 @@ Route::post('/users/update', 'UsersController@update');
 
 // パスパラメータを含むルーティングは後に定義する
 Route::get('/users/{user_id}', 'UsersController@show');
+
+Route::get('/posts/new', 'PostsController@new')->name('new');
+Route::post('posts', 'PostsController@store');
