@@ -9,8 +9,8 @@
       <div class="card">
         <div class="card-header align-items-center d-flex">
           <a class="no-text-decoration" href="/users/{{ $post->user->id }}">
-            @if ($post->user->profile_photo)
-                <img class="post-profile-icon round-img" src="{{ asset('storage/user_images/' . $post->user->profile_photo) }}"/>
+            @if ($post->user->image)
+                <img class="post-profile-icon round-img" src="data:image/png;base64,{{ $post->user->image }}"/>
             @else
                 <img class="post-profile-icon round-img" src="{{ asset('/images/blank_profile.png') }}"/>
             @endif
@@ -30,7 +30,7 @@
         </div>
 
         <a href="/users/{{ $post->user->id }}">
-          <img src="/storage/post_images/{{ $post->id }}.jpg" class="card-img-top" />
+        <img src="data:image/png;base64,{{ $post->image }}" class="card-img-top" />
         </a>
 
         <div class="card-body">
@@ -63,7 +63,7 @@
                 <input class="form-control comment-input border-0" placeholder="コメント ..." autocomplete="off" type="text" name="comment" />
               </form>
             </div>
-            
+
           </div>
         </div>
 
